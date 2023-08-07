@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration Form</title>
+    <style>
+        body {
+          background-color: #f2f2f2;
+        }
+
+        form {
+          width: 300px;
+          margin: 0 auto;
+          padding: 20px;
+          background-color: #ffffff;
+          border-radius: 5px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+          width: 100%;
+          padding: 5px;
+          border-radius: 3px;
+          border: 1px solid #ccc;
+          margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+          display: block;
+          width: 104%;
+          padding: 10px;
+          margin-top: 10px;
+          background-color: #4CAF50;
+          color: #ffffff;
+          border-radius: 5px;
+          cursor: pointer;
+
+        }
+        .message-box {
+          width: 300px;
+          padding: 20px;
+          background-color: #f2f2f2;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          text-align: center;
+          margin: 0 auto;
+          margin-top: 50px;
+        }
+
+        .message-box h2 {
+          margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="register" method="post">
+        <h2> User Registration </h2>
+        {% csrf_token %}
+        <input type="text" name="first-name" placeholder="Enter First Name">
+        <input type="text" name="last-name" placeholder="Enter Last Name">
+        <input type="text" name="user-name" placeholder="Enter User Name">
+        <input type="email" name="email" placeholder="Enter Emai Id">
+        <input type="password" name="password" placeholder="Enter The Password">
+        <input type="password" name="password-confirm" placeholder="Confirm your Password">
+        <input type="submit">
+
+    </form>
+    <div class="message-box">
+        {% for msg in messages %}
+        <p>{{msg}}</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
